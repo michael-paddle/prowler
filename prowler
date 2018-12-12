@@ -3,20 +3,12 @@
 # Copyright 2018 Toni de la Fuente
 
 # Prowler is a tool that provides automate auditing and hardening guidance of an
-# AWS account. It is based on AWS-CLI commands. It follows some guidelines
-# present in the CIS Amazon Web Services Foundations Benchmark at:
-# https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf
+# AWS account. It is based on AWS-CLI commands.
 
 # Contact the author at https://blyx.com/contact
 # and open issues or ask questions at https://github.com/toniblyx/prowler
 
-
-# All CIS based checks in checks folder are licensed under a Creative Commons
-# Attribution-NonCommercial-ShareAlike 4.0 International Public License.
-# The link to the license terms can be found at
-# https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
-#
-# Any other piece of code is licensed as Apache License 2.0 as specified in
+# All code is licensed as Apache License 2.0 as specified in
 # each file. You may obtain a copy of the License at
 # http://www.apache.org/licenses/LICENSE-2.0
 
@@ -59,7 +51,7 @@ USAGE:
       -c <check_id>       specify a check id, to see all available checks use "-l" option
                             (i.e.: "check11" for check 1.1 or "extra71" for extra check 71)
       -g <group_id>       specify a group of checks by id, to see all available group of checks use "-l"
-                            (i.e.: "check3" for entire section 3, "level1" for CIS Level 1 Profile Definitions or "forensics-ready")
+                            (i.e.: "check3" for entire section 3, "forensics-ready" to test your account is ready for forensic analysis)
       -f <filterregion>   specify an AWS region to run checks against
                             (i.e.: us-west-1)
       -m <maxitems>       specify the maximum number of items to return for long-running requests (default: 100)

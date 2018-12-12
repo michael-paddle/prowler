@@ -1,4 +1,4 @@
-# Prowler: AWS CIS Benchmark Tool
+# Prowler: AWS Security Benchmark Tool
 
 ## Table of Contents
 
@@ -18,7 +18,7 @@
 
 ## Description
 
-Tool based on AWS-CLI commands for AWS account security assessment and hardening, following guidelines of the [CIS Amazon Web Services Foundations Benchmark v1.2.0 - 05-23-2018](https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf)
+Tool based on AWS-CLI commands for AWS account security assessment and hardening.
 
 ## Features
 
@@ -28,8 +28,6 @@ It covers hardening and security best practices for all AWS regions related to t
 - Logging (9 checks) [group2]
 - Monitoring (14 checks) [group3]
 - Networking (4 checks) [group4]
-- CIS Level 1 [cislevel1]
-- CIS Level 2 [cislevel2]
 - Extras (37 checks) *see Extras section* [extras]
 - Forensics related group of checks [forensics-ready]
 - GDPR [gdpr] Read more [here](https://github.com/toniblyx/prowler/issues/189)
@@ -111,8 +109,6 @@ This script has been written in bash using AWS-CLI and it works in Linux and OSX
     ./prowler -g group1 # for iam related checks
     ```
 
-    Valid check numbers are based on the AWS CIS Benchmark guide, so 1.1 is check11 and 3.10 is check310
-
 1. If you want to save your report for later analysis:
 
     ```sh
@@ -143,12 +139,6 @@ This script has been written in bash using AWS-CLI and it works in Linux and OSX
     ./prowler -M mono | aws s3 cp - s3://bucket-name/prowler-report.txt
     ```
 
-1. To perform an assessment based on CIS Profile Definitions you can use level1 or level2 with `-c` flag, more information about this [here, page 8](https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf):
-
-    ```sh
-    ./prowler -c level1
-    ```
-
 1. If you want to run Prowler to check multiple AWS accounts in parallel (runs up to 4 simultaneously `-P 4`):
 
     ```sh
@@ -171,7 +161,7 @@ This script has been written in bash using AWS-CLI and it works in Linux and OSX
         -c <check_id>       specify a check id, to see all available checks use -l option
                                 (i.e.: check11 for check 1.1 or extra71 for extra check 71)
         -g <group_id>       specify a group of checks by id, to see all available group of checks use -l
-                                (i.e.: check3 for entire section 3, level1 for CIS Level 1 Profile Definitions or forensics-ready)
+                                (i.e.: check3 for entire section 3, forensics-ready to test your account is ready for forensic analysis)
         -f <filterregion>   specify an AWS region to run checks against
                                 (i.e.: us-west-1)
         -m <maxitems>       specify the maximum number of items to return for long-running requests (default: 100)
@@ -187,7 +177,7 @@ This script has been written in bash using AWS-CLI and it works in Linux and OSX
 
 ## How to fix every FAIL
 
-Check your report and fix the issues following all specific guidelines per check in <https://d0.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf>
+Check your report and fix the issues.  Run again and fix anything still found.  Iterate until nothing is found.
 
 ## Screenshots
 
@@ -494,14 +484,7 @@ The guys of SecurityFTW have added Prowler in their Cloud Security Suite along w
 
 ## License
 
-All CIS based checks in the checks folder are licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Public License.
-The link to the license terms can be found at
-<https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode>
-Any other piece of code is licensed as Apache License 2.0 as specified in each file. You may obtain a copy of the License at
+Any code currently in this repo is licensed as Apache License 2.0 as specified in each file. You may obtain a copy of the License at
 <http://www.apache.org/licenses/LICENSE-2.0>
-
-NOTE: If you are interested in using Prowler for commercial purposes remember that due to the CC4.0 license “The distributors or partners that are interested and using Prowler would need to enrol as CIS SecureSuite Members to incorporate this product, which includes references to CIS resources, in their offering.". Information about CIS pricing for vendors here: <https://www.cisecurity.org/cis-securesuite/pricing-and-categories/product-vendor/>
-
-**I'm not related anyhow with CIS organisation, I just write and maintain Prowler to help companies over the world to make their cloud infrastructure more secure.**
 
 If you want to contact me visit <https://blyx.com/contact>
